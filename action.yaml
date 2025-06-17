@@ -1,0 +1,15 @@
+name: "PR Comment"
+description: "Add a GIF from GIPHY to any new PR"
+inputs:
+  github_token:
+    description: "Provide Github token here"
+    required: true
+  giphy_api_key:
+    description: "Provide GIPHY API key"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.github_token }}
+    - ${{ inputs.giphy_api_key }}

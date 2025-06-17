@@ -1,0 +1,10 @@
+FROM alpine:3.22.0
+
+RUN apk update && \
+    app add --no-cache curl jq
+
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
